@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
 
 
 
@@ -19,10 +21,11 @@ const ControlledInputs = () => {
     };
     return (
         <>
-            <article>
-                <form className='form' onSubmit={handleSubmit}>
-                    <div className='form-control'>
-                        <label htmlFor='handel'>Name : </label>
+            <center style={{ padding: '20%' }}>
+                <form className='form form-control  ' onSubmit={handleSubmit}>
+                    <h1 className="pb-5 text-primary" >Enter Your Codeforces Handel</h1>
+                    <div className='form'>
+                        <label htmlFor='handel'>Handel   . </label>
                         <input
                             type='text'
                             id='handel'
@@ -31,9 +34,9 @@ const ControlledInputs = () => {
                             onChange={(e) => sethandel(e.target.value)}
                         />
                     </div>
-                    <button type='submit'>add person</button>
+                    <button className="btn btn-outline-dark mt-5" type='submit'>Start Ladder</button>
                 </form>
-            </article>
+            </center>
         </>
     );
 };

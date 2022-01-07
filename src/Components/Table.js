@@ -61,8 +61,8 @@ const Problem = () => {
     console.log(items);
 
     return (
-        <div className="tabl">
-            {loading ? '<h1>loading...</h1>' :
+        <div className="tabl pt-2">
+            {loading ? <h1 className="text-center text-primary">Loading...</h1> :
                 <center>
                     <table className="table  table-light  ">
                         <thead>
@@ -80,11 +80,11 @@ const Problem = () => {
 
                                     return (
                                         <tr>
-                                            <th scope="row" >{i + 1}</th>
+                                            <td scope="row" >{i + 1}</td>
                                             <td>{item.rating}</td>
-                                            <td >
-                                                <a href={`https://codeforces.com/contest/${item.contestId}/problem/B`}>{item.name}</a>
-                                            </td>
+                                            <th >
+                                                <a className="link-info" href={`https://codeforces.com/contest/${item.contestId}/problem/B`}>{item.name}</a>
+                                            </th>
                                             {item.solved ?
                                                 <td className="text-center" style={{ backgroundColor: '#7cf07c' }} >
                                                     Accepted
