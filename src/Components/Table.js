@@ -15,7 +15,6 @@ const Tablex = () => {
     // console.log(handel);
     return (
         <>
-            <h1 className="text-center pt-5">Welcome {handel}</h1>
             <Problem />
         </>
     )
@@ -62,9 +61,11 @@ const Problem = () => {
 
     return (
         <div className="tabl pt-2">
+
+            {products.status === 'OK' ? <h1 className="text-center pt-5">Welcome {handel}</h1> : <h1 className="text-center pt-5">Welcome </h1>}
             {loading ? <h1 className="text-center text-primary">Loading...</h1> :
                 <center>
-                    <table className="table  table-light  ">
+                    <table className="table table-light  ">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -83,7 +84,7 @@ const Problem = () => {
                                             <td scope="row" >{i + 1}</td>
                                             <td>{item.rating}</td>
                                             <th >
-                                                <a className="link-info" href={`https://codeforces.com/contest/${item.contestId}/problem/B`}>{item.name}</a>
+                                                <a className="link-primary" href={`https://codeforces.com/contest/${item.contestId}/problem/B`}>{item.name}</a>
                                             </th>
                                             {item.solved ?
                                                 <td className="text-center" style={{ backgroundColor: '#7cf07c' }} >
