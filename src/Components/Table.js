@@ -15,7 +15,7 @@ const Tablex = () => {
     // console.log(handel);
     return (
         <>
-            <h1>Codeforces Handel :{handel}</h1>
+            <h1 className="text-center pt-5">Welcome {handel}</h1>
             <Problem />
         </>
     )
@@ -86,12 +86,11 @@ const Problem = () => {
                                                 <a href={`https://codeforces.com/contest/${item.contestId}/problem/B`}>{item.name}</a>
                                             </td>
                                             {item.solved ?
-                                                <td className="bgc">
-                                                    <p>ture</p>
+                                                <td className="text-center" style={{ backgroundColor: '#7cf07c' }} >
+                                                    Accepted
                                                 </td>
                                                 :
-                                                <td >
-                                                </td>
+                                                <td className="text-center" >—</td>
                                             }
                                         </tr>
                                     )
