@@ -58,6 +58,22 @@ const Problem = () => {
     console.log(usersolver);
     que.sort((a, b) => (a.rating) - (b.rating));
     console.log(items);
+    let flag = false;
+    const problemsArray = []
+    for (let i = 0; i < que.length; i++) {
+        if (flag === false) {
+            if (que[i].solved === false) {
+                flag = true;
+                problemsArray.push({ ...que[i], lock: false });
+            } else {
+                problemsArray.push({ ...que[i], lock: false });
+            }
+        } else {
+            problemsArray.push({ ...que[i], lock: true });
+        }
+    }
+
+    console.log(problemsArray);
 
     return (
         <div className="tabl pt-2">
@@ -65,9 +81,9 @@ const Problem = () => {
             {products.status === 'OK' ? <h1 className="text-center pt-5">Welcome {handel}</h1> : <h1 className="text-center pt-5">Welcome </h1>}
             {loading ? <h1 className="text-center text-primary">Loading...</h1> :
                 <center>
-                    <table className="table table-light  ">
+                    <table className="table table-light table-hover">
                         <thead>
-                            <tr>
+                            <tr className="text-center">
                                 <th scope="col">#</th>
                                 <th scope="col">rating </th>
                                 <th scope="col">Name</th>
@@ -77,21 +93,28 @@ const Problem = () => {
                         </thead>
                         <tbody>
                             {
-                                que.slice(0, 100).map((item, i) => {
+                                problemsArray.slice(0, 100).map((item, i) => {
 
+
+                                    const cla = "link-primary "
+                                    const alreadysolved = item.solved && item.lock;
+                                    const openacc = item.solved && !item.lock;
+                                    const openaccClass = openacc ? "text-center table-success" : "text-center table-default";
                                     return (
-                                        <tr>
+                                        <tr className={openaccClass}>
                                             <td scope="row" >{i + 1}</td>
-                                            <td>{item.rating}</td>
-                                            <th >
-                                                <a className="link-primary" href={`https://codeforces.com/contest/${item.contestId}/problem/B`}>{item.name}</a>
+                                            <th  >{item.rating}</th>
+                                            <th  >
+                                                {item.lock ? <a>{item.name}</a> : <a className={cla} href={`https://codeforces.com/contest/${item.contestId}/problem/B`}>{item.name}</a>}
+
                                             </th>
                                             {item.solved ?
-                                                <td className="text-center" style={{ backgroundColor: '#7cf07c' }} >
-                                                    Accepted
+
+                                                <td  >
+                                                    {alreadysolved ? <div className="font-weight-bold" style={{ color: '#7cf07c', fontWeight: '900' }} > Accepted</div> : <div style={{ backgroundColor: '#7cf07c' }} >Accepted</div>}
                                                 </td>
                                                 :
-                                                <td className="text-center" >—</td>
+                                                <td  >— </td>
                                             }
                                         </tr>
                                     )
@@ -101,7 +124,7 @@ const Problem = () => {
                     </table>
                 </center>
             }
-        </div>
+        </div >
     )
 }
 
