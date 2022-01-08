@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "./useFetchProblem";
 import { Table } from 'react-bootstrap'
-import prob from '../question'
+import prob from '../que'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './table.css'
@@ -119,7 +119,7 @@ const Problem = () => {
                                             <td scope="row" >{i + 1}</td>
                                             <th  >{item.rating}</th>
                                             <th  >
-                                                {item.lock ? <a>{item.name}</a> : <a className={cla} href={`https://codeforces.com/contest/${item.contestId}/problem/B`}>{item.name}</a>}
+                                                {item.lock ? <a>{item.name}</a> : <a className={cla} href={`https://codeforces.com/contest/${item.contestId}/problem/B`} target="_blank">{item.name}</a>}
 
                                             </th>
                                             {item.solved ?

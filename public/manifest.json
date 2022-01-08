@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CF Ladder",
+  "name": "CF ladder with latest questions",
   "icons": [
     {
       "src": "favicon.ico",
