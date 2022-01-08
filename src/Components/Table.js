@@ -32,6 +32,7 @@ const Problem = () => {
         }
     })
     const usersolver = [];
+    let ctr = 0;
     if (!loading) {
         if (products.status === 'OK') {
             products.result.map((item, i) => {
@@ -44,11 +45,11 @@ const Problem = () => {
                 }
             })
         }
-        let ctr = 0;
         items.map((problem, i) => {
             var __FOUND = usersolver.find(function (post, index) {
                 if (post.index === problem.index && post.contestId === problem.contestId) {
                     problem.solved = true;
+                    // ctr++;
                     return true;
                 }
             });
@@ -72,16 +73,29 @@ const Problem = () => {
             problemsArray.push({ ...que[i], lock: true });
         }
     }
+    for (let i = 0; i < problemsArray.length; i++) {
+        if (problemsArray[i].solved === true) {
+            ctr++;
+        }
+
+    }
 
     console.log(problemsArray);
 
     return (
         <div className="tabl pt-2">
 
-            {products.status === 'OK' ? <h1 className="text-center pt-5">Welcome {handel}</h1> : <h1 className="text-center pt-5">Welcome </h1>}
+            {products.status === 'OK' ?
+                <div className="text-center" >
+                    <h1 className="">Welcome {handel}
+                        <p className="pt-5 fm-bold text-dark fs-4">solved : {ctr} / 100</p>
+                    </h1>
+                </div>
+                : <h1 className="text-center pt-5">Welcome </h1>}
+
             {loading ? <h1 className="text-center text-primary">Loading...</h1> :
                 <center>
-                    <table className="table table-light table-hover">
+                    <table className="table table-light table-hover" style={{ backgroundColor: "#" }}>
                         <thead>
                             <tr className="text-center">
                                 <th scope="col">#</th>
@@ -111,7 +125,7 @@ const Problem = () => {
                                             {item.solved ?
 
                                                 <td  >
-                                                    {alreadysolved ? <div className="font-weight-bold" style={{ color: '#7cf07c', fontWeight: '900' }} > Accepted</div> : <div style={{ backgroundColor: '#7cf07c' }} >Accepted</div>}
+                                                    {alreadysolved ? <div className="font-weight-bold" style={{ color: '#7cf07c', fontWeight: '900' }} > Accepted</div> : <div style={{ backgroundColor: '#86fa86' }} >Accepted</div>}
                                                 </td>
                                                 :
                                                 <td  >— </td>

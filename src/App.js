@@ -1,6 +1,6 @@
-import './App.css';
 import Table from './Components/Table'
 import Home from './Components/Home';
+import './App.css';
 
 import {
   BrowserRouter,

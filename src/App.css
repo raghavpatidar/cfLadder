@@ -1,0 +1,22 @@
+body{
+ 
+        opacity: 1;
+        background-image:  radial-gradient(#0fff04 0.45px, transparent 0.45px), radial-gradient(#0fff04 0.45px, #e5e5f7 0.45px);
+        background-size: 18px 18px;
+        background-position: 0 0,9px 9px;
+}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 50px;
+	/* /* margin-bottom: 30px; */
+    padding: 2%;
+    text-align: center;
+	/* width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%; */ 
+}
