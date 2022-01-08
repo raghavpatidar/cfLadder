@@ -56,9 +56,9 @@ const Problem = () => {
         })
     }
     let que = items.slice(0, 100);
-    console.log(usersolver);
+    // console.log(usersolver);
     que.sort((a, b) => (a.rating) - (b.rating));
-    console.log(items);
+    // console.log(items);
     let flag = false;
     const problemsArray = []
     for (let i = 0; i < que.length; i++) {
@@ -80,7 +80,7 @@ const Problem = () => {
 
     }
 
-    console.log(problemsArray);
+    // console.log(problemsArray);
 
     return (
         <div className="tabl pt-2">
