@@ -1,7 +1,9 @@
-import Table from './Components/Table'
-import Home from './Components/Home';
+import Table from './Components/Table/Table'
+// import Table from './Components/Table/Table'
+import Home from './Components/Home/Home';
 import './App.css';
-import Ladder from './Components/Ladder';
+import Ladder from './Components/Ladder/Ladder';
+import Footer from './Components/Footer/Footer';
 
 import {
   BrowserRouter,
@@ -12,17 +14,12 @@ import {
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
         <Route path='/:handel/:ladder' element={<Table />}> </Route>
-      </Routes>
-      <Routes>
         <Route path='/:handel' element={<Ladder />}> </Route>
-      </Routes>
-      <Routes>
         <Route path='/' element={<Home />}> </Route>
       </Routes>
-
+      <Footer></Footer>
     </BrowserRouter>
 
   );

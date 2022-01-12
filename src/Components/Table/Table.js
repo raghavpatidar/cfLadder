@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useFetch } from "./useFetchProblem";
+import { useFetch } from "../State/useFetchProblem";
 import { Table } from 'react-bootstrap'
-import prob from '../que'
+import prob from '../../que'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './table.css'
@@ -100,7 +100,7 @@ const Problem = () => {
         }
     }
     return (
-        <div className=" container">
+        <div className="container tablemain">
 
             {products.status === 'OK' ?
                 <div className="container item" >
