@@ -1,6 +1,7 @@
 import Table from './Components/Table'
 import Home from './Components/Home';
 import './App.css';
+import Ladder from './Components/Ladder';
 
 import {
   BrowserRouter,
@@ -13,7 +14,10 @@ function App() {
     <BrowserRouter>
 
       <Routes>
-        <Route path='/:handel' element={<Table />}> </Route>
+        <Route path='/:handel/:ladder' element={<Table />}> </Route>
+      </Routes>
+      <Routes>
+        <Route path='/:handel' element={<Ladder />}> </Route>
       </Routes>
       <Routes>
         <Route path='/' element={<Home />}> </Route>

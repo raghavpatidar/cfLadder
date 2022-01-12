@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import '../App.css'
 import { useNavigate } from "react-router";
 import { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/js/bootstrap.js';
 
 
 
@@ -20,11 +20,13 @@ const ControlledInputs = () => {
         }
     };
     return (
-        <>
-            <center style={{ padding: '20%' }}>
-                <form className=' form-control  ' onSubmit={handleSubmit}>
-                    <h1 className="pb-5 text-info fw-bold" >Enter Your Codeforces Handel</h1>
-                    <div className='form'>
+        <section>
+            <div className="container">
+                <form className='form' onSubmit={handleSubmit}>
+                    <div className="item">
+                        <h3 className=" text-info fw-bolder " >Enter Your Codeforces Handel</h3>
+                    </div>
+                    <div className="item">
                         <label className="fw-bold font-monospace" htmlFor='handel'>Handel   . </label>
                         <input
                             type='text'
@@ -33,12 +35,17 @@ const ControlledInputs = () => {
                             value={handel}
                             style={{ outline: "none" }}
                             onChange={(e) => sethandel(e.target.value)}
+                            placeholder="Codeforces Handel"
                         />
+                        <br />
                     </div>
-                    <button className="btn btn-outline-dark mt-5" type='submit'>Start Ladder</button>
+                    <div className="item">
+                        <button className="btn btn-outline-dark mt-5" type='submit'>Start Ladder</button>
+                    </div>
                 </form>
-            </center>
-        </>
+            </div>
+        </section>
+
     );
 };
 

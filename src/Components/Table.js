@@ -6,13 +6,12 @@ import prob from '../que'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './table.css'
+import PrintTable from "./PrintTable";
+
 
 const url = "https://codeforces.com/api/problemset.problems";
 
 const Tablex = () => {
-    const { handel } = useParams();
-
-    // console.log(handel);
     return (
         <>
             <Problem />
@@ -21,18 +20,25 @@ const Tablex = () => {
 }
 
 const Problem = () => {
-    const { handel } = useParams();
+    const { handel, ladder } = useParams();
+    console.log(ladder);
+    // const ladder = 2;
+    // if (!ladder) {
+    //     ladder = 0;
+    // }
     const userurl = `https://codeforces.com/api/user.status?handle=${handel}`;
     const { loading, products } = useFetch(userurl);
     const items = [];
     const prob1 = prob.result.problems;
     prob1.map((single) => {
-        if (single.index === 'B' && single.rating <= 1500 && single.rating > 1000) {
+        if (single.index !== 'A' && single.index !== 'B' && single.rating <= 1500 && single.rating > 1000) {
             items.push({ ...single, solved: false });
         }
     })
     const usersolver = [];
     let ctr = 0;
+
+    // calculating user problems solved and checking if he solved ladder quesstion or
     if (!loading) {
         if (products.status === 'OK') {
             products.result.map((item, i) => {
@@ -55,10 +61,25 @@ const Problem = () => {
             });
         })
     }
-    let que = items.slice(0, 100);
-    // console.log(usersolver);
-    que.sort((a, b) => (a.rating) - (b.rating));
-    // console.log(items);
+
+
+    //slicing according to ladder 1 , 2 , 3;
+    let que = [];
+    let array = items.slice(0, 100);
+    array.sort((a, b) => (a.rating) - (b.rating));
+    if (ladder == 1) {
+        que = array.slice(0, 40);
+    } else if (ladder == 2) {
+        que = array.slice(40, 70);
+    }
+    else if (ladder == 3) {
+        que = array.slice(70, 100);
+    } else {
+        que = array.slice(0, 100);
+    }
+
+
+
     let flag = false;
     const problemsArray = []
     for (let i = 0; i < que.length; i++) {
@@ -77,78 +98,32 @@ const Problem = () => {
         if (problemsArray[i].solved === true) {
             ctr++;
         }
-
     }
-
-    // console.log(problemsArray);
-
     return (
-        <div className="tabl pt-2">
+        <div className=" container">
 
             {products.status === 'OK' ?
-                <div className="text-center" >
-                    <h1 className="">Welcome {handel}
-                        <p className="pt-5 fm-bold text-dark fs-4">solved : {ctr} / 100</p>
-                    </h1>
+                <div className="container item" >
+                    <h2 className="">
+                        Welcome : {handel}
+                        <p className="pt-5 fm-bold text-dark fs-4">
+                            solved : {ctr} / {problemsArray.length}
+                        </p>
+                    </h2>
                 </div>
-                : <h1 className="text-center pt-5">Welcome </h1>}
-
-            {loading ? <h1 className="text-center text-primary">Loading...</h1> :
-                <center>
-                    <table className="table table-light table-hover" style={{ backgroundColor: "#" }}>
-                        <thead>
-                            <tr className="text-center">
-                                <th scope="col">#</th>
-                                <th scope="col">rating </th>
-                                <th scope="col">Name</th>
-                                <th scope="col">status</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                problemsArray.slice(0, 100).map((item, i) => {
-
-
-                                    const cla = "link-primary "
-                                    const alreadysolved = item.solved && item.lock;
-                                    const openacc = item.solved && !item.lock;
-                                    const openaccClass = openacc ? "text-center table-success" : "text-center table-default";
-                                    return (
-                                        <tr className={openaccClass}>
-                                            <td scope="row" >{i + 1}</td>
-                                            <th  >{item.rating}</th>
-                                            <th  >
-                                                {item.lock ? <a>{item.name}</a> : <a className={cla} href={`https://codeforces.com/contest/${item.contestId}/problem/B`} target="_blank">{item.name}</a>}
-
-                                            </th>
-                                            {item.solved ?
-
-                                                <td  >
-                                                    {alreadysolved ? <div className="font-weight-bold" style={{ color: '#7cf07c', fontWeight: '900' }} > Accepted</div> : <div style={{ backgroundColor: '#86fa86' }} >Accepted</div>}
-                                                </td>
-                                                :
-                                                <td  >— </td>
-                                            }
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </tbody>
-                    </table>
-                </center>
+                : <h1 className="text-center pt-5 ">Welcome </h1>
             }
+            {
+                loading ? <h1 className="text-center text-primary ">Loading...</h1> :
+                    <div className=" container">
+                        <PrintTable array={problemsArray} key={problemsArray.length}></PrintTable>
+                    </div>
+            }
+
+
         </div >
     )
 }
 
-// const getuser = (handel) => {
-//     console.log(handel)
-//    
-//     const { loading, products } = useFetch(userurl);
-//     console.log(loading);
-
-//     return [0, 2, 5];
-// }
 export default Tablex
 
