@@ -104,14 +104,14 @@ Variables
 	font-size: 0.875rem;
   }
   p {
-	margin-bottom: 0.825rem;
+	/* margin-bottom: 0.825rem; */
 	color: var(--clr-grey-5);
 }
 th p {
 	  /* margin-bottom: 1.25rem; */
 	  color: var(--clr-grey-5);
 	  font-weight: bolder;
-	  font-size: larger;
+	  /* font-size: larger; */
   }
   @media screen and (min-width: 800px) {
 	h1 {
@@ -141,7 +141,7 @@ th p {
   /* section */
   .section,
   .container {
-	width: 90vw;
+	width: 65vw;
 	margin: 0 auto;
 	max-width: var(--max-width);
   }
@@ -154,7 +154,7 @@ th p {
   
   .container {
 	text-align: center;
-	margin-top: 5rem;
+	margin-top: 1rem;
   }
   .btn {
 	display: inline-block;
