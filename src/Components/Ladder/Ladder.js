@@ -24,6 +24,9 @@ const Ladder = () => {
                             <p className="fs-3">Try some Ladder </p>
                         </div>
                         <div class='item'>
+                            <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${0}`)}>Bigneer Ladder</a>
+                        </div>
+                        <div class='item'>
                             <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${1}`)}>First Ladder</a>
                         </div>
                         <div class='item'>

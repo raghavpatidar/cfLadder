@@ -22,19 +22,36 @@ const Tablex = () => {
 const Problem = () => {
     const { handel, ladder } = useParams();
     console.log(ladder);
-    // const ladder = 2;
-    // if (!ladder) {
-    //     ladder = 0;
-    // }
+    // let ladder = Number(lad);
+
     const userurl = `https://codeforces.com/api/user.status?handle=${handel}`;
     const { loading, products } = useFetch(userurl);
     const items = [];
     const prob1 = prob.result.problems;
-    prob1.map((single) => {
-        if (single.index !== 'A' && single.index !== 'B' && single.rating <= 1500 && single.rating > 1000) {
-            items.push({ ...single, solved: false });
-        }
-    })
+    if (ladder != 0) {
+        prob1.map((single) => {
+            if (single.index !== 'A' && single.index !== 'B' && single.rating <= 1500 && single.rating > 1000) {
+                items.push({ ...single, solved: false });
+            }
+        })
+    } else if (ladder == 0) {
+        let eight = 0
+        let nine = 0
+        let ten = 0;
+        prob1.map((single) => {
+            let rat = Number(single.rating);
+            if (eight < 40 && rat === 800) {
+                items.push({ ...single, solved: false });
+                eight++;
+            } else if (nine < 25 && rat === 900) {
+                items.push({ ...single, solved: false });
+                nine++;
+            } else if (rat == 1000) {
+                items.push({ ...single, solved: false });
+
+            }
+        })
+    }
     const usersolver = [];
     let ctr = 0;
 
@@ -67,12 +84,15 @@ const Problem = () => {
     let que = [];
     let array = items.slice(0, 100);
     array.sort((a, b) => (a.rating) - (b.rating));
-    if (ladder == 1) {
+    if (ladder == (0)) {
+        que = array.slice(0, 100);
+    }
+    else if (ladder == (1)) {
         que = array.slice(0, 40);
-    } else if (ladder == 2) {
+    } else if (ladder == (2)) {
         que = array.slice(40, 70);
     }
-    else if (ladder == 3) {
+    else if (ladder == (3)) {
         que = array.slice(70, 100);
     } else {
         que = array.slice(0, 100);
