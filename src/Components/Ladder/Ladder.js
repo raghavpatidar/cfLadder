@@ -16,24 +16,55 @@ const Ladder = () => {
     return (
         <section >
 
-            <div className='backgroung'>
+            <div className='backgroung pb-4 mb-5'>
                 <div className="itemladder">
                     <div className="container">
                         <div className="text-secondary">
                             <h2 className="pt-5 pb-2"> hey {handel} </h2>
                             <p className="fs-3">Try some Ladder </p>
                         </div>
-                        <div class='item'>
-                            <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${0}`)}>Bigneer Ladder</a>
+                        <div className='item  '>
+                            <div className="text-left">
+                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${0}`)}>Bigneer Ladder</a>
+                                <p>If you are a Bigneer then you must solve this first</p>
+                            </div>
                         </div>
-                        <div class='item'>
-                            <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${1}`)}>First Ladder</a>
+                        <div className='item text-center'>
+                            <div>
+                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${1}`)}>First Ladder <span className="text-danger fs-1 fw-bolder">*</span></a>
+                                <p>This is special FIRST ladder for intermidiates</p>
+                            </div>
                         </div>
-                        <div class='item'>
-                            <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${2}`)}>Second Ladder</a>
+                        <div className='item'>
+                            <div>
+
+                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${2}`)}>Second Ladder <span className="text-danger fs-1 fw-bolder">*</span></a>
+                                <p>This is special SECOND ladder for intermidiates</p>
+                            </div>
                         </div>
-                        <div class='item'>
-                            <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${3}`)}>Third Ladder</a>
+                        <div className='item'>
+                            <div>
+                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${3}`)}>Third Ladder <span className="text-danger fs-1 fw-bolder">*</span></a>
+                                <p>This is special THIRD ladder for intermidiates</p>
+                            </div>
+                        </div>
+                        <div className='item'>
+                            <div>
+                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${4}`)}>1200-1300 Ladder</a>
+                                <p>This is ladder for problems rated between 1200 to 1300</p>
+                            </div>
+                        </div>
+                        <div className='item'>
+                            <div>
+                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${5}`)}>1400-1500 Ladder</a>
+                                <p>This is ladder for problems rated between 1400 to 1500</p>
+                            </div>
+                        </div>
+                        <div className='item'>
+                            <div>
+                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${6}`)}>DP Ladder</a>
+                                <p>This is ladder for DP problems rated between 1400 to 1500</p>
+                            </div>
                         </div>
                     </div>
 

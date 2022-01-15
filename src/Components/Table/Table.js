@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "../State/useFetchProblem";
 import { Table } from 'react-bootstrap'
 import prob from '../../que'
+import probdp from "../../dp";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './table.css'
@@ -27,14 +28,49 @@ const Problem = () => {
     const userurl = `https://codeforces.com/api/user.status?handle=${handel}`;
     const { loading, products } = useFetch(userurl);
     const items = [];
-    const prob1 = prob.result.problems;
-    if (ladder != 0) {
+    const prob1 = prob;
+    const probdp1 = probdp;
+    let arr = [];
+    for (let i = 0; i < prob1.length; i++) {
+        const x = prob1[i];
+        if (x.rating <= 1800) {
+            arr.push(x);
+        }
+        console.log(arr);
+    }
+    if (ladder == 4) {
         prob1.map((single) => {
-            if (single.index !== 'A' && single.index !== 'B' && single.rating <= 1500 && single.rating > 1000) {
+            if (single.rating <= 1300 && single.rating >= 1200) {
                 items.push({ ...single, solved: false });
             }
         })
-    } else if (ladder == 0) {
+    }
+    else if (ladder == 5) {
+        prob1.map((single) => {
+            if (single.rating <= 1500 && single.rating >= 1400) {
+                items.push({ ...single, solved: false });
+            }
+        })
+    }
+    else if (ladder == 6) {
+        // items = probdp1.slice(0);
+        probdp1.map((single) => {
+            if (single.rating <= 1500 && single.rating >= 1100) {
+                let check = false;
+                for (let i = 0; i < single.tags.length; i++) {
+                    if (single.tags[i] == 'dp') {
+                        check = true;
+                        break;
+                    }
+                }
+                if (check) {
+                    items.push({ ...single, solved: false });
+                }
+                // }
+            }
+        })
+    }
+    else if (ladder == 0) {
         let eight = 0
         let nine = 0
         let ten = 0;
@@ -52,11 +88,19 @@ const Problem = () => {
             }
         })
     }
+    else if (ladder != 0) {
+        prob1.map((single) => {
+            if (single.index !== 'A' && single.index !== 'B' && single.rating <= 1500 && single.rating > 1000) {
+                items.push({ ...single, solved: false });
+            }
+        })
+    }
     const usersolver = [];
     let ctr = 0;
-
+    let name = handel;
     // calculating user problems solved and checking if he solved ladder quesstion or
     if (!loading) {
+        console.log(products);
         if (products.status === 'OK') {
             products.result.map((item, i) => {
                 if (item.verdict === 'OK') {
