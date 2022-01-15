@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
             <div className='copyright'>
                 <p className='px'> ©  Raghav Patidar.</p>
-                {/* <img src="https://visitor-badge.glitch.me/badge?page_id=cfladerraghav"></img> */}
+                <img src="https://visitor-badge.glitch.me/badge?page_id=cfladerraghav"></img>
             </div>
         </footer>
     )

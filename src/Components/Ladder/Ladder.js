@@ -25,8 +25,8 @@ const Ladder = () => {
                         </div>
                         <div className='iteml'>
                             <div className="text-left">
-                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${0}`)}>Bigneer Ladder</a>
-                                <p>If you are a Bigneer then you must solve this first</p>
+                                <a className="btn btn-dark fs-2" onClick={() => navigate(`/${handel}/${0}`)}>Beginner's  Ladder</a>
+                                <p>If you are a Beginner's  then you must solve this first</p>
                             </div>
                         </div>
                         <div className='iteml text-center'>

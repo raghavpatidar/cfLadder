@@ -1645,16 +1645,6 @@ const prob = [
         ]
     },
     {
-        "contestId": 1571,
-        "index": "A",
-        "name": "Sequence of Comparisons",
-        "type": "PROGRAMMING",
-        "rating": 800,
-        "tags": [
-            "*special"
-        ]
-    },
-    {
         "contestId": 1569,
         "index": "C",
         "name": "Jury Meeting",
