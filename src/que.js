@@ -3902,18 +3902,18 @@ const prob = [
             "number theory"
         ]
     },
-    {
-        "contestId": 1505,
-        "index": "A",
-        "name": "Is it rated - 2",
-        "type": "PROGRAMMING",
-        "rating": 900,
-        "tags": [
-            "*special",
-            "implementation",
-            "interactive"
-        ]
-    },
+    // {
+    //     "contestId": 1505,
+    //     "index": "A",
+    //     "name": "Is it rated - 2",
+    //     "type": "PROGRAMMING",
+    //     "rating": 900,
+    //     "tags": [
+    //         "*special",
+    //         "implementation",
+    //         "interactive"
+    //     ]
+    // },
     {
         "contestId": 1504,
         "index": "B",
@@ -4414,17 +4414,17 @@ const prob = [
             "greedy"
         ]
     },
-    {
-        "contestId": 1488,
-        "index": "A",
-        "name": "From Zero To Y",
-        "type": "PROGRAMMING",
-        "rating": 900,
-        "tags": [
-            "*special",
-            "math"
-        ]
-    },
+    // {
+    //     "contestId": 1488,
+    //     "index": "A",
+    //     "name": "From Zero To Y",
+    //     "type": "PROGRAMMING",
+    //     "rating": 900,
+    //     "tags": [
+    //         "*special",
+    //         "math"
+    //     ]
+    // },
     {
         "contestId": 1487,
         "index": "D",

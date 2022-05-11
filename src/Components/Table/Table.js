@@ -22,7 +22,7 @@ const Tablex = () => {
 
 const Problem = () => {
     const { handel, ladder } = useParams();
-    console.log(ladder);
+    // console.log(ladder);
     // let ladder = Number(lad);
 
     const userurl = `https://codeforces.com/api/user.status?handle=${handel}`;
@@ -36,8 +36,8 @@ const Problem = () => {
         if (x.rating <= 1800) {
             arr.push(x);
         }
-        console.log(arr);
     }
+    // console.log(arr);
     if (ladder == 4) {
         prob1.map((single) => {
             if (single.rating <= 1300 && single.rating >= 1200) {
@@ -100,13 +100,15 @@ const Problem = () => {
     let name = handel;
     // calculating user problems solved and checking if he solved ladder quesstion or
     if (!loading) {
-        console.log(products);
+        // console.log(products);
         if (products.status === 'OK') {
             products.result.map((item, i) => {
                 if (item.verdict === 'OK') {
                     const temp = {
+                        codeid: item.id,
                         contestId: item.problem.contestId,
-                        index: item.problem.index
+                        index: item.problem.index,
+
                     }
                     usersolver.push(temp);
                 }
@@ -115,13 +117,17 @@ const Problem = () => {
         items.map((problem, i) => {
             var __FOUND = usersolver.find(function (post, index) {
                 if (post.index === problem.index && post.contestId === problem.contestId) {
+                    // console.log(post, problem);
                     problem.solved = true;
+                    problem.points = post.codeid;
+
                     // ctr++;
                     return true;
                 }
             });
         })
     }
+
 
 
     //slicing according to ladder 1 , 2 , 3;
