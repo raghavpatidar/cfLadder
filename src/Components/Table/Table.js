@@ -55,7 +55,7 @@ const Problem = () => {
     else if (ladder == 6) {
         // items = probdp1.slice(0);
         probdp1.map((single) => {
-            if (single.rating <= 1500 && single.rating >= 1100) {
+            if (single.rating <= 1600 && single.rating >= 1400) {
                 let check = false;
                 for (let i = 0; i < single.tags.length; i++) {
                     if (single.tags[i] == 'dp') {
